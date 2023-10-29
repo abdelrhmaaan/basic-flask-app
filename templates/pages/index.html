@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}ITI Blog{% endblock title %}
+{% block content %}
+
+
+<div class="container mt-4">
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-4"> 
+            <div class="card mb-4">
+                {% if post.image %}
+                <img src="{{url_for('upload',filename=post.image)}}" class="card-img-top" alt="Sample Image">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.body }}</p>
+                    <div class="btn-group" role="group" aria-label="Card Buttons">
+                        <a href="{{url_for('show',id = post.id)}}" class="btn btn-primary">Show</a>
+                        <a href="{{url_for('edit',id = post.id)}}" class="btn btn-success">Edit</a>
+                        <a href="{{url_for('delete',id = post.id)}}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock content %}

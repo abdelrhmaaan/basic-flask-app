@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}show post{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4"> 
+            <div class="card mb-4">
+                <img src="{{url_for('upload',filename=post.image)}}" class="card-img-top" alt="Sample Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.body }}</p>
+                    <div class="btn-group" role="group" aria-label="Card Buttons">
+                        <button type="button" class="btn btn-primary">Show</button>
+                        <button type="button" class="btn btn-success">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
